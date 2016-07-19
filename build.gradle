@@ -39,8 +39,10 @@ jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
-task stage(dependsOn: ['clean', 'build', 'installApp'])
-
 task wrapper(type: Wrapper) {
   gradleVersion = '2.9'
+}
+
+task stage {
+  dependsOn assemble
 }
