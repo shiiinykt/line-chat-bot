@@ -42,6 +42,7 @@ public class ChatBot {
 		        	if (content instanceof TextContent) {
 		        		TextContent text = (TextContent) content;
 		        		try {
+		        			logger.debug("debug  from: " + text.getFrom() + ", text: " + text.getText());
 							client.sendText(text.getFrom(), text.getText());
 							
 						} catch (Exception e) {
